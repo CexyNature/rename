@@ -22,8 +22,11 @@ name_equivalences = c("Common Silverbiddy" = "Gerres subfasciatus",
 ##### Please double check that common names are spelled as in the raw files ######
 ##################################################################################
 
+## Create directoy where new files will be saved
+dir.create(file.path(here::here(data_tidy)), showWarnings = FALSE)
+
 ## Retrive all .csv file in the raw directory
-files_list <- list.files(path = here::here("data/raw"), pattern = file_target_pattern, full.names = TRUE, recursive = TRUE)
+files_list <- list.files(path = here::here(data_raw), pattern = file_target_pattern, full.names = TRUE, recursive = TRUE)
 
 ## Read one file at the time, change common name occurrences to species names and save it into data/tidy
 for (i in 1:length(files_list)){
